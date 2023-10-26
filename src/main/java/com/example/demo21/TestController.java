@@ -31,9 +31,9 @@ public class TestController {
     }
 
     @PostMapping(value = "/test2", consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> test2(@RequestBody MT_BusinessPartnerRetrieveRespMsg  msg){
-        return new ResponseEntity<>(msg.BusinessPartnerRetrieveResultData.BusinessPartnerItem.BusinessPartnerID+"", org.springframework.http.HttpStatus.OK);
-//        return new ResponseEntity<>(msg.paco(), org.springframework.http.HttpStatus.OK);
+    public ResponseEntity<String> test2(@RequestBody TestXml  msg){
+//        return new ResponseEntity<>(msg.BusinessPartnerRetrieveResultData.BusinessPartnerItem.BusinessPartnerID+"", org.springframework.http.HttpStatus.OK);
+        return new ResponseEntity<>(msg.paco(), org.springframework.http.HttpStatus.OK);
     }
 }
 
@@ -43,42 +43,5 @@ class ContactPerson {
     public String InternalID;
 }
 
- class SenderParty {
-    public ContactPerson ContactPerson;
-}
 
- class MessageHeader {
-    public String UUID;
-    public String ReferenceUUID;
-    public Date CreationDateTime;
-    public String SenderBusinessSystemID;
-    public String RecipientBusinessSystemID;
-    public SenderParty SenderParty;
-}
-
- class BusinessPartnerItem {
-    public int BusinessPartnerID;
-}
-
- class BusinessPartnerRetrieveResultData {
-    public BusinessPartnerItem BusinessPartnerItem;
-}
-
- class Item {
-    public String Note;
-}
-
- class Log {
-    public int BusinessDocumentProcessingResultCode;
-    public Item Item;
-}
-
- class MT_BusinessPartnerRetrieveRespMsg {
-    public MessageHeader MessageHeader;
-    public BusinessPartnerRetrieveResultData BusinessPartnerRetrieveResultData;
-    public Log Log;
-    public String n0;
-    public String prx;
-    public String text;
-}
 
